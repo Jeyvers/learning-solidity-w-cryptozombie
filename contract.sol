@@ -16,9 +16,10 @@ contract ZombieFactory {
     Zombie[] public zombies;
 
     function _createZombie(string memory _name, uint _dna) private {
-       
+       // create new zombie, push it to the zombies array and get the zombie id of the newly created zombie
         uint id = zombies.push(Zombie(_name, _dna)) - 1;
         // and fire it here
+        // fire the event to know that a new zombie has been created
         emit NewZombie(id, _name, _dna);
     }
 
